@@ -1,0 +1,111 @@
+ <div>
+    <ngx-spinner type="ball-spin-fade-rotating" size="medium"></ngx-spinner>
+    <div style="align-content: space-between;">
+        <div id="HASH">
+            <div class="title">View Stores</div>
+        </div>
+    </div>
+    <div style="padding-top: 30px;">
+        <table style="width: 70vw; min-width: 650px;">
+            <tr class="last" style="text-align: left;">
+                <th scope="col" style="text-align: left;">Employee Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">User Role</th>
+                <th scope="col">Employee Details </th>
+                <th scope="col">Store</th>
+<!--                <th scope="col">Image</th>-->
+<!--                <th scope="col">Login</th>-->
+<!--                <th scope="col">Logout</th>-->
+<!--                <th scope="col">Action</th>-->
+            </tr>
+          <tr class="last" style="color:white">
+            <td>01</td>
+            <td>Michael</td>
+            <td>1234567890</td>
+            <td>Owner</td>
+            <td>Male, 55yr</td>
+            <td>Brookside Salon</td>
+          </tr>
+          <tr style="color:white" >
+            <td>02</td>
+            <td>Mike</td>
+            <td>1122334455</td>
+            <td>Owner</td>
+            <td>Male, 45yr</td>
+            <td>Main Street Salon</td>
+          </tr>
+          <tr style="color:white">
+            <td>03</td>
+            <td>Lawrence</td>
+            <td>0124578789</td>
+            <td>Owner</td>
+            <td>Female, 55yr</td>
+            <td>Broadway Salon</td>
+          </tr>
+          <tr style="color:white">
+            <td>04</td>
+            <td>Stephen</td>
+            <td>4455667788</td>
+            <td>Owner</td>
+            <td>Female, 55yr</td>
+            <td>Walnut Street Salon</td>
+          </tr>
+            <ng-container *ngFor='let employee of sortedStores'>
+                <tr style="text-align: center; font-weight: lighter; ">
+                    <td>{{employee?.username | titlecase}}</td>
+                    <td>{{employee?.name | titlecase}}</td>
+                    <td>{{employee?.mobile}}</td>
+                    <td>{{employee?.role | titlecase}}</td>
+                    <td>
+                        <div style="cursor: pointer;color: #ea7c69;">
+                            <u>View Employee Details</u>
+                        </div>
+                    </td>
+                    <td>{{employee.store_name?.name | titlecase}}</td>
+                    <td>
+                        <div>
+                            <img src="{{employee.photo}}" onerror="this.onerror=null; this.src='assets/s-users@2x.png'" width="80px" height="80px" style="object-fit:contain;">
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employee.Login != null">
+                            {{employee?.Login}}
+                        </div>
+                        <div style="text-align: center;" *ngIf="employee.Login == null">
+                            NA
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employee.Logout != null">
+                            {{employee?.Logout}}
+                        </div>
+                        <div style="text-align: center;" *ngIf="employee.Logout == null">
+                            NA
+                        </div>
+                    </td>
+                    <td>
+                        <tr class="none">
+                            <td style="width: 5vw;">
+                                <div>
+                                    <div class="material-icons" style=" cursor: pointer; float: right ;color: #46be8a;">
+                                        edit
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width: 20px;">
+                                <div>
+                                    <div class="material-icons" style=" cursor: pointer; float: right ;color: #dd0934;">
+                                        delete
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
+    </div>
+
+<!-- <h4 style="color: white;">Saloon shops are displayed here</h4>-->
